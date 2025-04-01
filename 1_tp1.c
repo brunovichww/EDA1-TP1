@@ -40,6 +40,9 @@ int main() {
   assert(es_palindromo("abc", 0, 2) == false);
   assert(es_palindromo("abcd", 0, 3) == false);
 
+  //prueba de git con este comentario
+  //prueba con un segundo comentario
+
   printf("Todas las pruebas pasaron correctamente.\n");
   return 0;
 }
