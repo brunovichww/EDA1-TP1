@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "tp_1_recursividad.h"
+#include "formulas_menu_tp1.h"
 
 // Validación estricta de número entero
 bool esEnteroValido(const char *str)

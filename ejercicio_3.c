@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "tp_1_recursividad.h"
+#include "formulas_menu_tp1.h"
 
 // Función que valida si una cadena representa un número entero positivo (incluye 0)
 // No debe tener espacios, letras, ni símbolos

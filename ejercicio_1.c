@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <ctype.h> // Para funciones como islower (verifica si es minúscula)
 #include "tp_1_recursividad.h"
+#include "formulas_menu_tp1.h"
 
 //  Valida que la cadena tenga solo letras minusculas sin espacios ni numeros
 bool esCadenaValida(char palabra[])
