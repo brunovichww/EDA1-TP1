@@ -1,5 +1,5 @@
 # Estructura de Datos y Algoritmos I - 2025
-structura de Datos y Algoritmos I, Universidad Nacional de Lujan
+Estructura de Datos y Algoritmos I, Universidad Nacional de Lujan
 ## UNLu Analista Universitario en Ciencias de Datos
 ## Materia: 11275 – Estructura de Datos y Algoritmos I, Plan de estudios: 20.01
 #### Docente responsable: Perello Mario - Profesor Adjunto
@@ -9,5 +9,10 @@ structura de Datos y Algoritmos I, Universidad Nacional de Lujan
 ## N° de grupo: 
 ## Alumnos:
 
-Apellido y Nombre // Legajo // Mails
+Patrick Murayari // Legajo // Mail
+Campos Martín // 199853 // Mail
+Luis Rodriguez // 88937 // Mail
+Ciano Valentín // 175632 // Mail
+Tokashiki Solano // 147990 // solanotokashiki@gmail.com
+Weiss Bruno // 203570 // bruno.w.163@gmail.com
 
