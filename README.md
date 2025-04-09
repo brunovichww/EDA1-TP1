@@ -13,7 +13,7 @@ Patrick Murayari // Legajo // Mail
 
 Campos Martín // 199853 // Mail
 
-Luis Rodriguez // 88937 // Mail
+Luis Rodriguez // 88937 // luigis23@gmail.com
 
 Ciano Valentín // 175632 // Mail
 
