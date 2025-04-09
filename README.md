@@ -10,9 +10,15 @@ Estructura de Datos y Algoritmos I, Universidad Nacional de Lujan
 ## Alumnos:
 
 Patrick Murayari // Legajo // Mail
+
 Campos Martín // 199853 // Mail
+
 Luis Rodriguez // 88937 // Mail
+
 Ciano Valentín // 175632 // Mail
+
 Tokashiki Solano // 147990 // solanotokashiki@gmail.com
+
 Weiss Bruno // 203570 // bruno.w.163@gmail.com
+
 
