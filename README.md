@@ -9,13 +9,13 @@ Estructura de Datos y Algoritmos I, Universidad Nacional de Lujan
 ## N° de grupo: 
 ## Alumnos:
 
-Patrick Murayari // Legajo // Mail
+Patrick Murayari // Legajo 162111 // Mail patrickmurayari03@gmail.com
 
 Campos Martín // 199853 // Mail
 
 Luis Rodriguez // 88937 // luigis23@gmail.com
 
-Ciano Valentín // 175632 // Mail
+Ciano Valentín // 175632 // Mail valentinciano@hotmail.com
 
 Tokashiki Solano // 147990 // solanotokashiki@gmail.com
 
