@@ -17,7 +17,7 @@ int terminoSeridFibonacci(int k){
 	return terminoSeridFibonacci(k-1)+ terminoSeridFibonacci(k-2);
 	}
 	
-
+/*
 int main() {
     char str[10];
     printf("Ingrese un número: ");
@@ -34,7 +34,7 @@ int main() {
 
     return 0;
 }	
-	
+*/	
 	
 //int main(){
 	

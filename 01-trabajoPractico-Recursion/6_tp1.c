@@ -53,7 +53,7 @@ char* auxOndaDigital(char strsenial[], char stronda[], int pos){
 }
 	
 	
-	
+/*	
 int main() {
     char senial[100];
     char stronda[200];
@@ -88,3 +88,4 @@ int main() {
 
     return 0;
 }
+*/
