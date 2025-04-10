@@ -62,9 +62,10 @@ int main()
         case 3:
             ejecutar_ejercicio_3();
             break;
-        /*case 4:
-            ejecutar_ejercicio_4();
+        case 9:
+            ejecutar_ejercicio_9();
             break;
+        /*
         case 5: ejecutar_ejercicio_5(); break;
         case 6: ejecutar_ejercicio_6(); break;
         case 7: ejecutar_ejercicio_7(); break;
