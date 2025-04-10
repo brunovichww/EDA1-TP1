@@ -52,6 +52,9 @@ int main()
         case 3:
             ejecutar_ejercicio_3();
             break;
+        case 7:
+            ejecutar_ejercicio_7();
+            break;
         /*case 4:
             ejecutar_ejercicio_4();
             break;
