@@ -19,7 +19,7 @@ int main()
     while (opcion != 0)
     {
         limpiarPantalla();
-        printf("\n========= MENU PRINCIPAL: Tp 1 - Recursividad=========\n");
+        printf("\n========= MENU PRINCIPAL: Tp 1 - Recursividad =========\n");
         printf("1. Ejecutar ejercicio 1\n");
         printf("2. Ejecutar ejercicio 2\n");
         printf("3. Ejecutar ejercicio 3\n");

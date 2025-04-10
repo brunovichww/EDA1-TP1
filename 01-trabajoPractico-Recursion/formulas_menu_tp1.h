@@ -11,7 +11,7 @@ void ejecutar_ejercicio_3();
 void ejecutar_ejercicio_5();
 void ejecutar_ejercicio_7();
 void ejecutar_ejercicio_8();
-void ejecutar_ejercicio_9();
+void ejecutar_ejercicio_9(); 
 
 #endif
 
