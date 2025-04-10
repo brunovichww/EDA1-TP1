@@ -1,5 +1,7 @@
 # Ignorar ejecutables
 *.exe
+makefile
+programa
 
 # Ignorar archivos objeto
 *.o

@@ -6,12 +6,22 @@
 // void ejecutar_ejercicio_1();
 // void ejecutar_ejercicio_2();
 
+// Función para limpiar pantalla según sistema operativo
+void limpiarPantalla() {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
 int main()
 {
     int opcion = -1;
 
     while (opcion != 0)
     {
+		limpiarPantalla();
         printf("\n========= MENU PRINCIPAL: Tp 1 - Recursividad=========\n");
         printf("1. Ejecutar ejercicio 1\n");
         printf("2. Ejecutar ejercicio 2\n");

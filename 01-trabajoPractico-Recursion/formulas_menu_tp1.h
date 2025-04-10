@@ -1,7 +1,6 @@
 #ifndef FORMULAS_MENU_TP1_H
 #define FORMULAS_MENU_TP1_H
 
-// tus includes (opcionalmente podés sacarlos)
 #include <stdio.h>
 #include <string.h>
 
