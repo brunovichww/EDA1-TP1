@@ -25,6 +25,8 @@ int producto(int m, int n){
 #include <assert.h>
 #include <stdio.h> // Incluimos stdio.h para printf
 
+
+/*
 int main() {
   // Pruebas básicas
   assert(producto(2, 3) == 6);
@@ -58,3 +60,5 @@ int main() {
 
   return 0;
 }
+
+*/

@@ -11,9 +11,11 @@ bool es_palindromo(char palabra[],int i, int f){
 		return false;}
 	}
 
+
+/*
 int main() {
-  // Casos base
-  assert(es_palindromo("", 0, -1) == true);
+    // Casos base
+    assert(es_palindromo("", 0, -1) == true);
   assert(es_palindromo("a", 0, 0) == true);
 
   // Palíndromos
@@ -46,3 +48,5 @@ int main() {
   printf("Todas las pruebas pasaron correctamente.\n");
   return 0;
 }
+*/
+

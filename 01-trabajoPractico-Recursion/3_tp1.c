@@ -59,6 +59,7 @@ int main() {
 #include <stdlib.h>
 #include <ctype.h>
 
+/*
 int main() {
     char str[10];
     char *endptr;
@@ -91,4 +92,7 @@ int main() {
 
     return 0;
 }
+
+*/
+
 

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "tp_1_recursividad.h" // Declaraciones de todas las funciones ejecutar_ejercicio_X()
 #include "formulas_menu_tp1.h"
+#include <stdlib.h>
 
 // void ejecutar_ejercicio_1();
 // void ejecutar_ejercicio_2();

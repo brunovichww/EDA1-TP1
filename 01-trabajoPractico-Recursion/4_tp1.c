@@ -78,6 +78,8 @@ float division(int a, int b){
 	}
 	
 	
+/*
+
 int main(){
     int a, b;
 
@@ -99,4 +101,5 @@ int main(){
 
     return 0;
 }
+*/
 
