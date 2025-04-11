@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> // Incluir esta librería para usar strcspn y strcmp
-#include <ctype.h> // Para funciones como islower (verifica si es minúscula)
+#include <string.h>
+#include <ctype.h>
 #include "tp_1_recursividad.h"
 #include "formulas_menu_tp1.h"
 
-// Calcular la potencia de 10 necesaria para los decimales
+// Función para calcular potencia negativa de 10
 float pot(int dec) {
     float potenciaDeDiez = 1;
     for (int i = 0; i < dec; i++) {
-        potenciaDeDiez *= 0.1f; // Multiplicar por 0.1 es equivalente a dividir por 10
+        potenciaDeDiez *= 0.1f;
     }
     return potenciaDeDiez;
 }
 
-// Función auxiliar recursiva para la división entera (restas sucesivas)
+// División entera recursiva
 void auxDivisionEntera(int a, int b, int *cociente, int *resto) {
     if (a < b) {
         *cociente += 0;
@@ -26,15 +26,13 @@ void auxDivisionEntera(int a, int b, int *cociente, int *resto) {
     }
 }
 
-// Función auxiliar recursiva para la división con decimales
+// División decimal recursiva
 float auxDivisionDecimal(int a, int b, float res, int dec) {
     int cociente = 0;
     int resto = 0;
-    
-    // Realizar la división entera usando la función auxiliar
+
     auxDivisionEntera(a, b, &cociente, &resto);
-    
-    // Caso base: cuando el resto es 0 o cuando hemos alcanzado 5 decimales
+
     if (resto == 0 || dec == 5) {
         float potenciaDeDiez = pot(dec);
         res += cociente * potenciaDeDiez;
@@ -47,51 +45,88 @@ float auxDivisionDecimal(int a, int b, float res, int dec) {
     }
 }
 
-// Función principal que maneja la división, considerando el signo
+// División con signo
 float division(int a, int b) {
     int signo = -1;
     if ((a > 0 && b > 0) || (a < 0 && b < 0)) {
         signo = 1;
     }
-    
-    // Convertir a valores absolutos
+
     a = abs(a);
     b = abs(b);
-    
-    // Realizar la división recursiva con decimales
+
     float resultado = auxDivisionDecimal(a, b, 0, 0);
-    
-    // Devolver el resultado con el signo adecuado
     return signo * resultado;
 }
 
-// Función que maneja la interacción con el usuario y el menú
+// Validar si la cadena es un número entero (positivo o negativo)
+bool esEnteroValido2(const char *str) {
+    int i = 0;
+
+    if (str[0] == '\0')
+        return false;
+
+    if (str[0] == '-' || str[0] == '+') {
+        i++;
+        if (str[i] == '\0') return false;  // Solo un signo no es válido
+    }
+
+    for (; str[i] != '\0'; i++) {
+        if (!isdigit(str[i]))
+            return false;
+    }
+
+    return true;
+}
+
+// Función principal del ejercicio 4
 void ejecutar_ejercicio_4() {
-    int m, n;
+    char buffer[50];
     char respuesta[10];
+    int m, n;
     int continuar = 1;
 
     while (continuar == 1) {
-        // Solicitar valores de m y n (dividendo y divisor)
-        printf("Ingrese el valor de m (dividendo): ");
-        scanf("%d", &m);
-        printf("Ingrese el valor de n (divisor): ");
-        scanf("%d", &n);
+        // Validar el dividendo
+        while (1) {
+            printf("Ingrese el valor de m (dividendo): ");
+            fgets(buffer, sizeof(buffer), stdin);
+            buffer[strcspn(buffer, "\n")] = '\0';
 
-        // Verificar si n es diferente de cero para evitar división por cero
-        if (n == 0) {
-            printf("Error: No se puede dividir por cero.\n");
-        } else {
-            // Realizar la división recursiva
-            float resultado = division(m, n);
-            printf("El cociente de %d dividido por %d es: %.5f\n", m, n, resultado);
+            if (esEnteroValido2(buffer)) {
+                m = atoi(buffer);
+                break;
+            } else {
+                printf("Entrada invalida. Ingrese un numero entero (positivo o negativo) sin espacios ni simbolos.\n");
+            }
         }
 
-        // Preguntar si desea continuar (solo acepta 1 o 0)
+        // Validar el divisor
         while (1) {
-            printf("\nDesea realizar otra división? (1 = Si, 0 = No): ");
+            printf("Ingrese el valor de n (divisor): ");
+            fgets(buffer, sizeof(buffer), stdin);
+            buffer[strcspn(buffer, "\n")] = '\0';
+
+            if (!esEnteroValido2(buffer)) {
+                printf("Entrada invalida. Ingrese un numero entero (positivo o negativo) sin espacios ni simbolos.\n");
+            } else {
+                n = atoi(buffer);
+                if (n == 0) {
+                    printf("Error: No se puede dividir por cero.\n");
+                } else {
+                    break;
+                }
+            }
+        }
+
+        float resultado = division(m, n);
+        printf("El cociente de %d dividido por %d es: %.5f\n", m, n, resultado);
+
+        // Preguntar si desea continuar
+        while (1) {
+            printf("\nDesea realizar otra division? (1 = Si, 0 = No): ");
             fgets(respuesta, sizeof(respuesta), stdin);
-            respuesta[strcspn(respuesta, "\n")] = '\0'; // Eliminar salto de línea
+            respuesta[strcspn(respuesta, "\n")] = '\0';
 
             if (strcmp(respuesta, "1") == 0) {
                 continuar = 1;
@@ -100,10 +135,10 @@ void ejecutar_ejercicio_4() {
                 continuar = 0;
                 break;
             } else {
-                printf("Entrada inválida. Solo se permite 1 (Sí) o 0 (No).\n");
+                printf("Entrada invalida. Solo se permite 1 (Si) o 0 (No).\n");
             }
         }
     }
 
-    printf("\nVolviendo al menú principal...\n");
+    printf("\nVolviendo al menu principal...\n");
 }

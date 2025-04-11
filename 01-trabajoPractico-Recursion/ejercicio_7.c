@@ -5,10 +5,10 @@
 #include <string.h>
 #include "tp_1_recursividad.h"
 #include "formulas_menu_tp1.h"
-
 #define LIMITE_NIVEL 1000
-
-bool esEnteroPositivoValido(const char *str)
+// Función que valida si una cadena representa un número entero positivo (incluye 0)
+// No debe tener espacios, letras, ni símbolos
+bool esEnteroPositivoEsValido(const char *str)
 {
     if (str[0] == '\0')
         return false;
@@ -22,12 +22,14 @@ bool esEnteroPositivoValido(const char *str)
     return true;
 }
 
+
 void limpiarBuffer()
 {
     int ch;
     while ((ch = getchar()) != '\n' && ch != EOF)
         ;
 }
+
 
 char* reunionMafia(int nivel) {
     if (nivel == 1) {
@@ -56,6 +58,11 @@ char* reunionMafia(int nivel) {
     }
 }
 
+
+// Función recursiva que devuelve el k-ésimo término de la serie de Fibonacci
+// Definición clásica: F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2)
+
+// Función principal del ejercicio 3, se llama desde el menú
 void ejecutar_ejercicio_7()
 {
     char buffer[50];
@@ -74,7 +81,7 @@ void ejecutar_ejercicio_7()
 
             buffer[strcspn(buffer, "\n")] = '\0';
 
-            if (esEnteroPositivoValido(buffer))
+            if (esEnteroPositivoEsValido(buffer))
             {
                 int nivel = atoi(buffer);
                 if (nivel >= 1 && nivel <= LIMITE_NIVEL)
@@ -86,22 +93,22 @@ void ejecutar_ejercicio_7()
                 }
                 else if (nivel > LIMITE_NIVEL)
                 {
-                    printf("Nivel demasiado alto. Por favor, ingrese un número menor o igual a %d.\n", LIMITE_NIVEL);
+                    printf("Nivel demasiado alto. Por favor, ingrese un numero menor o igual a %d.\n", LIMITE_NIVEL);
                 }
                 else
                 {
-                    printf("Nivel inválido. Debe ser mayor o igual a 1.\n");
+                    printf("Nivel invalido. Debe ser mayor o igual a 1.\n");
                 }
             }
             else
             {
-                printf("Entrada invalida. Ingrese un número entero positivo sin espacios ni símbolos.\n");
+                printf("Entrada invalida. Ingrese un numero entero positivo sin espacios ni simbolos.\n");
             }
         }
 
         while (1)
         {
-            printf("\n¿Desea continuar? (1 = Si, 0 = No): ");
+            printf("¿Desea continuar? (1 = Si, 0 = No): ");
             if (fgets(respuesta, sizeof(respuesta), stdin) == NULL)
                 continue;
 
@@ -121,7 +128,7 @@ void ejecutar_ejercicio_7()
             }
             else
             {
-                printf("Entrada inválida. Solo se permite 1 (Si) o 0 (No).\n");
+                printf("Entrada invalida. Solo se permite 1 (Si) o 0 (No).\n");
             }
         }
     }

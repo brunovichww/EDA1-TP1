@@ -8,6 +8,31 @@
 #define MAX_RESULTADOS 1000
 #define MAX_LINEA 256
 
+// Valida si una cadena representa un entero válido
+int esEnteroValido3(const char *str) {
+    int i = 0;
+    if (str[0] == '-') i = 1;
+    if (str[i] == '\0') return 0; // caso solo "-"
+    for (; str[i] != '\0'; i++) {
+        if (str[i] < '0' || str[i] > '9')
+            return 0;
+    }
+    return 1;
+}
+
+// Convierte string a entero sin usar atoi
+int convertirAEntero(const char *str) {
+    int resultado = 0, i = 0, negativo = 0;
+    if (str[0] == '-') {
+        negativo = 1;
+        i = 1;
+    }
+    for (; str[i] != '\0'; i++) {
+        resultado = resultado * 10 + (str[i] - '0');
+    }
+    return negativo ? -resultado : resultado;
+}
+
 // Función recursiva auxiliar
 void buscarSubconjuntosRec(int *conjunto, int n, int indice, int *subconjunto, int subTam, int sumaActual, int sumaObjetivo, char **output, int *count) {
     if (sumaActual == sumaObjetivo) {
@@ -45,28 +70,57 @@ void subconjuntosQueSumanN(int conjunto[], int tamano, int n, char **output) {
 // Función del menú
 void ejecutar_ejercicio_8() {
     int conjunto[MAX], n, objetivo;
-    char respuesta[10];
+    char buffer[50], respuesta[10];
     int continuar = 1;
 
     while (continuar == 1) {
-        printf("Ingrese la cantidad de elementos del conjunto: ");
-        scanf("%d", &n);
+        // Validar cantidad de elementos
+        while (1) {
+            printf("Ingrese la cantidad de elementos del conjunto: ");
+            fgets(buffer, sizeof(buffer), stdin);
+            buffer[strcspn(buffer, "\n")] = '\0';
 
-        if (n <= 0 || n > MAX) {
-            printf("Cantidad invalida. Intente nuevamente.\n");
-            continue;
+            if (esEnteroValido3(buffer)) {
+                n = convertirAEntero(buffer);
+                if (n > 0 && n <= MAX) {
+                    break;
+                } else {
+                    printf("Cantidad invalida. Debe estar entre 1 y %d.\n", MAX);
+                }
+            } else {
+                printf("Entrada invalida. Debe ingresar un numero entero.\n");
+            }
         }
 
-        printf("Ingrese los %d elementos:\n", n);
+        // Ingresar elementos del conjunto con validación
         for (int i = 0; i < n; i++) {
-            printf("Elemento %d: ", i + 1);
-            scanf("%d", &conjunto[i]);
+            while (1) {
+                printf("Elemento %d: ", i + 1);
+                fgets(buffer, sizeof(buffer), stdin);
+                buffer[strcspn(buffer, "\n")] = '\0';
+
+                if (esEnteroValido3(buffer)) {
+                    conjunto[i] = convertirAEntero(buffer);
+                    break;
+                } else {
+                    printf("Entrada invalida. Ingrese un numero entero.\n");
+                }
+            }
         }
 
-        printf("Ingrese la suma objetivo: ");
-        scanf("%d", &objetivo);
+        // Ingresar suma objetivo con validación
+        while (1) {
+            printf("Ingrese la suma objetivo: ");
+            fgets(buffer, sizeof(buffer), stdin);
+            buffer[strcspn(buffer, "\n")] = '\0';
 
-        while (getchar() != '\n');  // Limpiar buffer
+            if (esEnteroValido3(buffer)) {
+                objetivo = convertirAEntero(buffer);
+                break;
+            } else {
+                printf("Entrada invalida. Ingrese un numero entero.\n");
+            }
+        }
 
         // Reservamos espacio para resultados
         char *output[MAX_RESULTADOS];
@@ -79,7 +133,7 @@ void ejecutar_ejercicio_8() {
         int i = 0;
         while (output[i] != NULL) {
             printf("%s\n", output[i]);
-            free(output[i]);  // Liberamos memoria
+            free(output[i]);  // Liberar memoria
             i++;
         }
 

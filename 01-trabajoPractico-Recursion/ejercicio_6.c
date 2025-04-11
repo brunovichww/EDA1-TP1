@@ -20,7 +20,7 @@ char* auxOndaDigital(char seniales[], char onda[], int pos) {
         } else if (actual == 'L') {
             strcat(onda, "_");
         } else {
-            strcpy(onda, "Error en la señal de entrada.");
+            strcpy(onda, "Error en la senial de entrada.");
             return onda;
         }
 
@@ -35,12 +35,12 @@ void ejecutar_ejercicio_6() {
     int continuar = 1;
 
     while (continuar == 1) {
-        printf("Ingrese la señal (solo H o L, sin espacios): ");
+        printf("Ingrese la senial (solo H o L, sin espacios): ");
         fgets(senial, sizeof(senial), stdin);
         senial[strcspn(senial, "\n")] = '\0'; // Eliminar salto de línea
 
         if (strlen(senial) == 0) {
-            printf("Señal vacía. Intente nuevamente.\n");
+            printf("Senial vacia. Intente nuevamente.\n");
             continue;
         }
 
@@ -49,7 +49,7 @@ void ejecutar_ejercicio_6() {
         char* resultado = auxOndaDigital(senial, onda, 0);
         printf("Onda digital: %s\n", resultado);
 
-        printf("\n¿Desea ingresar otra señal? (1 = sí / 0 = no): ");
+        printf("\n¿Desea ingresar otra senial? (1 = si / 0 = no): ");
         fgets(respuesta, sizeof(respuesta), stdin);
         respuesta[strcspn(respuesta, "\n")] = '\0';
 
