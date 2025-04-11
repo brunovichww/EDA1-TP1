@@ -4,6 +4,8 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include "tp_1_recursividad.h"
+#include "formulas_menu_tp1.h"
+
 
 #define LIMITE_LONGITUD 15  // Longitud máxima permitida para el número
 

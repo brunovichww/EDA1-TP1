@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
+#include "tp_1_recursividad.h"
+#include "formulas_menu_tp1.h"
 /*
 Escribir una función recursiva que implemente el método que se describe para saber si
 un número es divisible por 7. Se separa la primera cifra de la derecha, se la multiplica
@@ -36,6 +38,8 @@ int ultimoDigito(int *bn){
 				  //los digitos de la izquierda
 	return (n-10*buffer); //ej: 123 -> buffer = 12 -> 123 -12*10 = 123-120 = 3
 	}
+
+
 
 
 bool divisiblePor7(int n){

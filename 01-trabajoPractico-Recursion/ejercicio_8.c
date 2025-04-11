@@ -2,32 +2,47 @@
 #include <stdlib.h>
 #include <string.h>
 #include "tp_1_recursividad.h"
+#include "formulas_menu_tp1.h"
 
 #define MAX 100
+#define MAX_RESULTADOS 1000
+#define MAX_LINEA 256
 
-// Función recursiva para encontrar subconjuntos que suman el total
-void encontrarSubconjuntos(int *conjunto, int n, int indice, int *subconjunto, int subTam, int sumaActual, int sumaObjetivo) {
+// Función recursiva auxiliar
+void buscarSubconjuntosRec(int *conjunto, int n, int indice, int *subconjunto, int subTam, int sumaActual, int sumaObjetivo, char **output, int *count) {
     if (sumaActual == sumaObjetivo) {
-        printf("{ ");
+        char buffer[MAX_LINEA] = "{ ";
+        char num[16];
         for (int i = 0; i < subTam; i++) {
-            printf("%d ", subconjunto[i]);
+            sprintf(num, "%d ", subconjunto[i]);
+            strcat(buffer, num);
         }
-        printf("}\n");
+        strcat(buffer, "}");
+        output[*count] = strdup(buffer);  // Guardamos la cadena en el array de resultados
+        (*count)++;
         return;
     }
 
-    if (indice >= n || sumaActual > sumaObjetivo) {
+    if (indice >= n || sumaActual > sumaObjetivo)
         return;
-    }
 
-    // Opción 1: incluir el elemento actual
+    // Incluir el elemento actual
     subconjunto[subTam] = conjunto[indice];
-    encontrarSubconjuntos(conjunto, n, indice + 1, subconjunto, subTam + 1, sumaActual + conjunto[indice], sumaObjetivo);
+    buscarSubconjuntosRec(conjunto, n, indice + 1, subconjunto, subTam + 1, sumaActual + conjunto[indice], sumaObjetivo, output, count);
 
-    // Opción 2: NO incluir el elemento actual
-    encontrarSubconjuntos(conjunto, n, indice + 1, subconjunto, subTam, sumaActual, sumaObjetivo);
+    // No incluir el elemento actual
+    buscarSubconjuntosRec(conjunto, n, indice + 1, subconjunto, subTam, sumaActual, sumaObjetivo, output, count);
 }
 
+// Función principal solicitada
+void subconjuntosQueSumanN(int conjunto[], int tamano, int n, char **output) {
+    int subconjunto[MAX];
+    int count = 0;
+    buscarSubconjuntosRec(conjunto, tamano, 0, subconjunto, 0, 0, n, output, &count);
+    output[count] = NULL; // Marcamos fin de resultados
+}
+
+// Función del menú
 void ejecutar_ejercicio_8() {
     int conjunto[MAX], n, objetivo;
     char respuesta[10];
@@ -51,12 +66,22 @@ void ejecutar_ejercicio_8() {
         printf("Ingrese la suma objetivo: ");
         scanf("%d", &objetivo);
 
-        // Limpiar buffer
-        while (getchar() != '\n');
+        while (getchar() != '\n');  // Limpiar buffer
+
+        // Reservamos espacio para resultados
+        char *output[MAX_RESULTADOS];
+        for (int i = 0; i < MAX_RESULTADOS; i++) output[i] = NULL;
+
+        // Llamamos a la función principal
+        subconjuntosQueSumanN(conjunto, n, objetivo, output);
 
         printf("\nSubconjuntos que suman %d:\n", objetivo);
-        int subconjunto[MAX];
-        encontrarSubconjuntos(conjunto, n, 0, subconjunto, 0, 0, objetivo);
+        int i = 0;
+        while (output[i] != NULL) {
+            printf("%s\n", output[i]);
+            free(output[i]);  // Liberamos memoria
+            i++;
+        }
 
         // Preguntar si desea continuar
         while (1) {

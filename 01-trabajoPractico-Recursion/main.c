@@ -4,13 +4,6 @@
 #include <stdlib.h>
 
 // Función para limpiar pantalla según sistema operativo
-void limpiarPantalla() {
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
-}
 
 int main()
 {
@@ -18,7 +11,6 @@ int main()
 
     while (opcion != 0)
     {
-        limpiarPantalla();
         printf("\n========= MENU PRINCIPAL: Tp 1 - Recursividad =========\n");
         printf("1. Ejecutar ejercicio 1\n");
         printf("2. Ejecutar ejercicio 2\n");
@@ -65,9 +57,6 @@ int main()
             break;
         case 6:
             ejecutar_ejercicio_6();
-            break;
-        case 7:
-            ejecutar_ejercicio_7();
             break;
         case 8:
             ejecutar_ejercicio_8();
