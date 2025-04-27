@@ -26,6 +26,13 @@ bool esCadenaNumericaValida(const char *str) {
     return true;
 }
 
+char *strdup(const char *src) {
+    char *dst = malloc(strlen (src) + 1);  // Space for length plus nul
+    if (dst == NULL) return NULL;          // No memory
+    strcpy(dst, src);                      // Copy the characters
+    return dst;                            // Return the new string
+}
+
 // Función recursiva para insertar separadores de miles
 char *agregarSeparadorMiles(char numero[]) {
     int len = strlen(numero);

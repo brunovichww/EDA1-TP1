@@ -2,6 +2,7 @@
 *.exe
 makefile
 programa
+*.pdf
 
 # Ignorar archivos objeto
 *.o
